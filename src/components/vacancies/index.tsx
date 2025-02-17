@@ -96,37 +96,6 @@ const VacancyList: React.FC = () => {
     fetchData();
   }, []);
 
-  // useEffect(() => {
-  //   const loadedData: FormValues[] = [];
-  //   if (data) {
-  //     Object.entries(data).forEach(([key, item]) => {
-  //       loadedData.push({
-  //         id: key,
-  //         positionName: item.positionName,
-  //         vacancyName: item.vacancyName,
-  //         department: item.department,
-  //         openingDate: item.openingDate,
-  //         closingDate: item.closingDate,
-  //         gender: item.gender,
-  //         education: item.education,
-  //         salaryType: item.salaryType,
-  //         salaryFrom: item.salaryFrom,
-  //         salaryTo: item.salaryTo,
-  //         region: item.region,
-  //         experience: item.experience,
-  //         address: item.address,
-  //         schedule: item.schedule,
-  //         employmentType: item.employmentType,
-  //         metroStation: item.metroStation,
-  //         responsibilities: item.responsibilities,
-  //         candidateRequirements: item.candidateRequirements,
-  //         additionalSkills: item.additionalSkills,
-  //       });
-  //     });
-  //   }
-  //   setVacancies(loadedData);
-  // }, [data]);
-
   console.log(vacancies);
 
   const handleStartEdit = (id: string) => {
