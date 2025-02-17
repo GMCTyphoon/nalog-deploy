@@ -1,0 +1,331 @@
+.formPageTitle {
+  display: flex;
+  font-size: 2.25rem;
+  margin: 0;
+  padding: 3rem 10rem;
+  font-weight: normal;
+  color: #4c73e3;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 0 10rem;
+  border-radius: 5px;
+}
+
+.basicForm,
+.detailsForm,
+.additionalForm {
+  display: grid;
+  grid-template-areas:
+    'topleft topcenter topright'
+    'midleft midcenter midright'
+    'botleft botcenter botright';
+  gap: 2.5rem;
+  padding: 5rem;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+
+.additionalForm {
+  grid-template-areas:
+    'top'
+    'mid'
+    'bot'
+    'footer';
+}
+
+.formGroupSalary {
+  grid-area: topleft / topleft / topright / topright;
+}
+
+.formGroupGender {
+  grid-area: botleft / botleft;
+}
+
+.formGroupEducation {
+  grid-area: botcenter / botcenter;
+}
+
+.label,
+.labelRequired {
+  display: flex;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: #4f4f55;
+}
+
+.labelRequired::after {
+  content: '*';
+  color: red;
+}
+
+.input,
+.select,
+.salaryInput,
+.dateInput,
+.textarea,
+.offerList {
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  color: #4f4f55;
+  border: 1px solid #dee4f0;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 300;
+  outline: none;
+}
+
+.offerList {
+  padding-left: 3rem;
+}
+
+.dateInputContainer {
+  position: relative;
+}
+
+.dateInput {
+  padding-right: 1.25rem;
+}
+
+.dateInput::-webkit-calendar-picker-indicator {
+  filter: invert(100%);
+  cursor: pointer;
+}
+
+.dateInput:invalid::-webkit-datetime-edit {
+  color: #dcdcdc;
+}
+
+.dateInput {
+  /* -moz-appearance: textfield; */
+  background: transparent;
+  color: #4f4f55;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  ::-webkit-calendar-picker-indicator {
+    opacity: 0.7;
+  }
+}
+
+.dateInput::after {
+  content: '';
+  position: absolute;
+  right: 1.25rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px; /* Размер иконки */
+  height: 21px; /* Размер иконки */
+  background-image: url('../../assets/calendarIcon.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+}
+
+.salaryInput {
+  width: 8rem;
+}
+
+.select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url('../../assets/customArrow.svg');
+  background-position: right 10px center;
+  background-size: 12px 12px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.select:focus-within {
+  background-image: url('../../assets/customArrowOpened.svg');
+}
+
+.select:required:invalid {
+  color: #dcdcdc;
+}
+
+.select option[value=''][disabled] {
+  display: none;
+}
+
+.select option {
+  color: #4f4f55;
+}
+
+.select option:checked {
+  background-color: #f0ffe9;
+}
+.select option:hover {
+  background-color: #f0ffe9;
+}
+
+.input:hover,
+.select:hover,
+.salaryInput:hover,
+.dateInput:hover,
+.textarea:hover {
+  box-shadow: 0 0 3px 1px #35a500b2;
+  outline: none;
+}
+
+.input:focus,
+.select:focus,
+.salaryInput:focus,
+.dateInput:focus,
+.textarea:focus {
+  outline: 2px solid #4c73e3;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+.radioGroup,
+.radioGroupSalary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.radioGroupSalary {
+  flex-direction: row;
+}
+
+.radioGroup input[type='radio'],
+.radioGroupSalary input[type='radio'] {
+  display: none;
+}
+
+.radioLabel {
+  font-weight: 300;
+  color: #4f4f55;
+}
+
+.radioLabel::before {
+  content: '';
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: 0;
+  bottom: -3px;
+  margin-right: 8px;
+  cursor: pointer;
+  outline: 1px solid #4c73e3;
+  border-radius: 50%;
+}
+
+/* Checked */
+.radioGroup input[type='radio']:checked + .radioLabel::before,
+.radioGroupSalary input[type='radio']:checked + .radioLabel::before {
+  content: url('../../assets/radiobuttonChecked.svg');
+}
+
+/* Hover */
+.radioLabel:hover::before {
+  box-shadow: 0 0 3px 1px #35a50080;
+  outline: none;
+}
+
+.salaryRange {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: #4f4f55;
+  font-weight: 300;
+  width: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.textarea {
+  /* outline: 1px solid #dee4f0; */
+  height: 100px;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  color: #4f4f55;
+  resize: none;
+}
+
+.textarea::placeholder {
+  color: #dcdcdc;
+}
+
+textarea::-webkit-resizer {
+  display: none;
+}
+
+.error {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 5px;
+}
+.success {
+  display: flex;
+  align-items: center;
+}
+
+.inputError {
+  outline: 1px solid #bf0003;
+  border: 1px solid transparent;
+}
+
+.formActionsButtons {
+  display: flex;
+  padding-bottom: 2rem;
+  gap: 1.25rem;
+}
+
+.buttonSubmit {
+  background-color: #4c73e3;
+  color: #ffffff;
+  padding: 1rem;
+  width: 250px;
+  border: none;
+  border-radius: 26px;
+  cursor: pointer;
+  font-size: 0.9375rem;
+}
+
+.buttonSubmit:hover {
+  background-color: #88a7ff;
+}
+
+.buttonReset {
+  color: #4c73e3;
+  padding: 1rem;
+  width: 250px;
+  border: 1px solid #4c73e3;
+  border-radius: 26px;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  background-color: transparent;
+}
+
+.buttonReset:hover {
+  color: #88a7ff;
+  border: 1px solid #88a7ff;
+}
+
+@media (min-width: 120rem) {
+  .form {
+    align-items: center;
+  }
+  .basicForm,
+  .detailsForm,
+  .additionalForm {
+    width: 1300px;
+  }
+  .formPageTitle {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,185 @@
+@font-face {
+  font-family: 'PFDinTextCondPro-Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('PFDinTextCondPro-Regular') format('woff');
+}
+
+@font-face {
+  font-family: 'PFDinTextCondPro-Bold';
+  font-style: normal;
+  font-weight: normal;
+  src: local('PFDinTextCondPro-Bold') format('woff');
+}
+
+.vacancyList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 0 10rem;
+}
+
+.vacancyPageTitle {
+  display: flex;
+  font-size: 2.25rem;
+  margin: 0;
+  padding: 3rem 10rem;
+  font-weight: normal;
+  color: #4c73e3;
+}
+
+.vacancyItem {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.75rem;
+  border-radius: 16px;
+  background-color: #ffffff;
+  gap: 1.75rem;
+}
+
+.vacancyItem:hover {
+  background-color: #f1f1f1;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.buttonEdit {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  outline-offset: 0;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.1s;
+}
+
+.buttonEdit:hover {
+  transform: scale(120%);
+}
+
+.buttonEdit:active {
+  transform: scale(100%);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cardContent {
+  display: grid;
+  grid-template-columns: auto fit-content(30%) fit-content(30%) fit-content(50%);
+  gap: 0.75rem;
+  align-items: end;
+  grid-template-areas:
+    'title salary experience metro'
+    'location salary experience metro';
+}
+
+.publicationDate {
+  font-size: 0.875rem;
+  color: #4f4f55;
+  opacity: 60%;
+}
+
+.title {
+  font-size: 1.5625rem;
+  font-weight: 700;
+  grid-area: title;
+  color: #4f4f55;
+}
+
+.location {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  font-size: 1rem;
+  color: #4f4f55;
+  grid-area: location;
+  font-family: 'PFDinTextCondPro-Regular', sans-serif;
+  opacity: 80%;
+}
+
+.location span {
+  transform: translateY(3px);
+}
+
+.salary {
+  display: flex;
+  grid-area: salary;
+  font-family: 'PFDinTextCondPro-Regular', sans-serif;
+  gap: 5px;
+  align-items: flex-end;
+}
+
+.salaryFrom {
+  display: flex;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #4c73e3;
+  transform: translateY(2px);
+}
+
+.salaryType {
+  display: flex;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: #4f4f55;
+}
+
+.experience {
+  display: flex;
+  font-size: 0.875em;
+  color: #4f4f55;
+  grid-area: experience;
+  font-family: 'PFDinTextCondPro-Regular', sans-serif;
+  gap: 5px;
+  align-items: flex-end;
+}
+
+.experienceType {
+  display: flex;
+  font-size: 1rem;
+  color: #4c73e3;
+  font-weight: 700;
+  transform: translateY(1px);
+}
+
+.metroStations {
+  display: flex;
+  color: #4f4f55;
+  grid-area: metro;
+  font-family: 'PFDinTextCondPro-Regular', sans-serif;
+  font-size: 1rem;
+  align-items: flex-end;
+}
+
+.metroStations p {
+  transform: translateY(1px);
+  opacity: 80%;
+}
+
+.metroStations span {
+  display: flex;
+  transform: translateY(1px);
+}
+
+.metroStations p {
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 120rem) {
+  .vacancyList {
+    align-items: center;
+  }
+  .vacancyItem,
+  .detailsForm,
+  .additionalForm {
+    width: 1300px;
+  }
+  .vacancyPageTitle {
+    justify-content: center;
+  }
+}
