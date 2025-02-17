@@ -1,3 +1,10 @@
+.container {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .formPageTitle {
   display: flex;
   font-size: 2.25rem;
@@ -5,6 +12,7 @@
   padding: 3rem 10rem;
   font-weight: normal;
   color: #4c73e3;
+  width: 1600px;
 }
 
 .formPageTitle span {
@@ -16,8 +24,9 @@
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin: 0 10rem;
+  padding: 0 10rem;
   border-radius: 5px;
+  width: 1600px;
 }
 
 .basicForm,
@@ -32,6 +41,7 @@
   padding: 5rem;
   background-color: #ffffff;
   border-radius: 16px;
+  width: 1300px;
 }
 
 .basicForm {
@@ -331,7 +341,7 @@ textarea::-webkit-resizer {
   color: #88a7ff;
   border: 1px solid #88a7ff;
 }
-
+/* 
 @media (min-width: 120rem) {
   .form {
     align-items: center;
@@ -344,4 +354,4 @@ textarea::-webkit-resizer {
   .formPageTitle {
     justify-content: center;
   }
-}
+} */

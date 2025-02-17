@@ -118,7 +118,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({
   };
 
   return (
-    <>
+    <div className={styles.container}>
      <h1 className={styles.formPageTitle}>
         {`Форма ${!isEditing ? 'размещения' : 'редактирования'}`}&nbsp;
         <span>заявки</span>
@@ -189,7 +189,7 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({
           </Form>
         )}
       </Formik>
-    </>
+    </div>
   );
 };
 

@@ -10,25 +10,27 @@ interface HeaderProps {
 export const Header: FC<HeaderProps> = ({ selectedTab, setSelectedTab }) => {
   return (
     <header>
-      <div
-        className={classNames(styles.headerItem, {
-          [styles.active]: selectedTab === 'applications',
-        })}
-        onClick={() => {
-          setSelectedTab('applications');
-        }}
-      >
-        Все заявки
-      </div>
-      <div
-        className={classNames(styles.headerItem, {
-          [styles.active]: selectedTab === 'form',
-        })}
-        onClick={() => {
-          setSelectedTab('form');
-        }}
-      >
-        Создание заявки
+      <div className={styles.container}>
+        <div
+          className={classNames(styles.headerItem, {
+            [styles.active]: selectedTab === 'applications',
+          })}
+          onClick={() => {
+            setSelectedTab('applications');
+          }}
+        >
+          Все заявки
+        </div>
+        <div
+          className={classNames(styles.headerItem, {
+            [styles.active]: selectedTab === 'form',
+          })}
+          onClick={() => {
+            setSelectedTab('form');
+          }}
+        >
+          Создание заявки
+        </div>
       </div>
     </header>
   );

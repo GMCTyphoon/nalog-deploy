@@ -1,11 +1,15 @@
 header {
   display: flex;
-  justify-content: right;
-  align-items: center;
+  justify-content: center;
   top: 0;
   background-color: #4c73e3;
   width: auto;
-  padding: 0 10rem;
+}
+
+.container {
+  width: 1300px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .headerItem {

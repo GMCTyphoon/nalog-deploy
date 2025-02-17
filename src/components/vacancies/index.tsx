@@ -169,7 +169,7 @@ const VacancyList: React.FC = () => {
   }
 
   return (
-    <>
+    <div className={styles.container}>
       {isEditing && (
         <JobApplicationForm
           selectedVacancy={selectedVacancy}
@@ -184,7 +184,7 @@ const VacancyList: React.FC = () => {
         </h1>
       )}
       {!isEditing && vacancyList}
-    </>
+    </div>
   );
 };
 

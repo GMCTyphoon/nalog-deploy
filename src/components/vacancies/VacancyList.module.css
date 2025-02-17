@@ -12,11 +12,19 @@
   src: local('PFDinTextCondPro-Bold') format('woff');
 }
 
+.container {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .vacancyList {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
   padding: 0 10rem;
+  width: 1600px;
 }
 
 .vacancyPageTitle {
@@ -26,6 +34,7 @@
   padding: 3rem 10rem;
   font-weight: normal;
   color: #4c73e3;
+  width: 1600px;
 }
 
 .vacancyItem {
@@ -35,6 +44,7 @@
   border-radius: 16px;
   background-color: #ffffff;
   gap: 1.75rem;
+  width: 1300px;
 }
 
 .vacancyItem:hover {
@@ -170,7 +180,7 @@
   padding: 0;
 }
 
-@media (min-width: 120rem) {
+/* @media (min-width: 120rem) {
   .vacancyList {
     align-items: center;
   }
@@ -179,7 +189,12 @@
   .additionalForm {
     width: 1300px;
   }
-  .vacancyPageTitle {
-    justify-content: center;
+
+  .container {
+    align-self: center;
+    width: 80vw;
   }
-}
+  .vacancyPageTitle {
+    justify-content: left;
+  }
+} */
