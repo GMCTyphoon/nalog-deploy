@@ -96,8 +96,6 @@ const VacancyList: React.FC = () => {
     fetchData();
   }, []);
 
-  console.log(vacancies);
-
   const handleStartEdit = (id: string) => {
     setIsEditing(true);
     selectedId.current = id;

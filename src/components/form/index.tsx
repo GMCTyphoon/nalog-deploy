@@ -115,7 +115,6 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({
       }
       setIsSubmitted(false);
     }, 3000);
-    console.log(values);
   };
 
   return (
