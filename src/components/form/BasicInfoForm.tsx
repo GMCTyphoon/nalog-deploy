@@ -127,49 +127,59 @@ const BasicInfoForm: React.FC = () => {
           className={styles.error}
         />
       </div>
-
-      <div className={styles.formGroupGender}>
-        <div className={styles.labelRequired}>Пол</div>
-        <div className={styles.radioGroup}>
-          <Field name="gender" id="genderMale" type="radio" value="мужской"/>
-          <label className={styles.radioLabel} htmlFor="genderMale">
-            Мужской
-          </label>
-          <Field name="gender" type="radio" id="genderWoman" value="женский" />
-          <label className={styles.radioLabel} htmlFor="genderWoman">
-            Женский
-          </label>
+      <div className={styles.formGroupGenderEducation}>
+        <div className={styles.formGroupGender}>
+          <div className={styles.labelRequired}>Пол</div>
+          <div className={styles.radioGroup}>
+            <Field name="gender" id="genderMale" type="radio" value="мужской" />
+            <label className={styles.radioLabel} htmlFor="genderMale">
+              Мужской
+            </label>
+            <Field
+              name="gender"
+              type="radio"
+              id="genderWoman"
+              value="женский"
+            />
+            <label className={styles.radioLabel} htmlFor="genderWoman">
+              Женский
+            </label>
+          </div>
+          <ErrorMessage
+            name="gender"
+            component="div"
+            className={styles.error}
+          />
         </div>
-        <ErrorMessage name="gender" component="div" className={styles.error} />
-      </div>
 
-      <div className={styles.formGroupEducation}>
-        <label className={styles.labelRequired} htmlFor="education">
-          Образование
-        </label>
-        <Field name="education">
-          {({ field, meta }: FieldProps) => (
-            <>
-              <select
-                {...field}
-                id="education"
-                required
-                className={`${styles.select} ${
-                  meta.touched && meta.error ? styles.inputError : ''
-                }`}
-              >
-                <option value="" disabled>
-                  Выберите
-                </option>
-                <option value="Высшее">Высшее</option>
-                <option value="Среднее">Среднее</option>
-              </select>
-              {meta.touched && meta.error && (
-                <div className={styles.error}>{meta.error}</div>
-              )}
-            </>
-          )}
-        </Field>
+        <div className={styles.formGroupEducation}>
+          <label className={styles.labelRequired} htmlFor="education">
+            Образование
+          </label>
+          <Field name="education">
+            {({ field, meta }: FieldProps) => (
+              <>
+                <select
+                  {...field}
+                  id="education"
+                  required
+                  className={`${styles.select} ${
+                    meta.touched && meta.error ? styles.inputError : ''
+                  }`}
+                >
+                  <option value="" disabled>
+                    Выберите
+                  </option>
+                  <option value="Высшее">Высшее</option>
+                  <option value="Среднее">Среднее</option>
+                </select>
+                {meta.touched && meta.error && (
+                  <div className={styles.error}>{meta.error}</div>
+                )}
+              </>
+            )}
+          </Field>
+        </div>
       </div>
     </div>
   );

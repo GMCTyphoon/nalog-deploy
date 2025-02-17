@@ -29,6 +29,13 @@
   border-radius: 16px;
 }
 
+.basicForm {
+  grid-template-areas:
+    'topleft topcenter topright'
+    'midleft midcenter midright'
+    'botleft botleft botcenter';
+}
+
 .additionalForm {
   grid-template-areas:
     'top'
@@ -41,12 +48,16 @@
   grid-area: topleft / topleft / topright / topright;
 }
 
-.formGroupGender {
+.formGroupGenderEducation {
+  display: flex;
   grid-area: botleft / botleft;
+}
+.formGroupGender {
+  width: 25%;
 }
 
 .formGroupEducation {
-  grid-area: botcenter / botcenter;
+  width: 45%;
 }
 
 .label,
