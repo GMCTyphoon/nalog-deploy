@@ -7,10 +7,7 @@ import React, {
 } from 'react';
 import VacancyItem from './VacancyItem';
 import styles from './VacancyList.module.css';
-import useHttp from '../../hooks/useHttp';
 import JobApplicationForm, { FormValues } from '../form';
-
-const requestConfig = {};
 
 const initialValues: FormValues = {
   id: '',
@@ -35,24 +32,74 @@ const initialValues: FormValues = {
   additionalSkills: '',
 };
 
+interface VacanciesData {
+  [key: string]: FormValues;
+}
+
 const VacancyList: React.FC = () => {
   const [vacancies, setVacancies] = useState<FormValues[]>([]);
   const selectedId = useRef<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
   const [selectedVacancy, setSelectedVacancy] =
     useState<FormValues>(initialValues);
   const [isEditing, setIsEditing] = useState<boolean>(false);
 
-  const { data, isLoading, error } = useHttp(
-    'http://localhost:3000/vacancies',
-    requestConfig,
-    []
-  );
-
   useEffect(() => {
-    if (data) {
-      setVacancies(data);
-    }
-  }, [data]);
+    const fetchData = async () => {
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const response = await fetch(
+          'https://react-http-request-97f22-default-rtdb.firebaseio.com/banking.json'
+        );
+
+        if (!response.ok) {
+          throw new Error('Ошибка при загрузке данных');
+        }
+        const loadedData: FormValues[] = [];
+        const result: VacanciesData = await response.json();
+        if (result) {
+          Object.entries(result).forEach(([key, item]) => {
+            loadedData.push({
+              id: key,
+              positionName: item.positionName,
+              vacancyName: item.vacancyName,
+              department: item.department,
+              openingDate: item.openingDate,
+              closingDate: item.closingDate,
+              gender: item.gender,
+              education: item.education,
+              salaryType: item.salaryType,
+              salaryFrom: item.salaryFrom,
+              salaryTo: item.salaryTo,
+              region: item.region,
+              experience: item.experience,
+              address: item.address,
+              schedule: item.schedule,
+              employmentType: item.employmentType,
+              metroStation: item.metroStation,
+              responsibilities: item.responsibilities,
+              candidateRequirements: item.candidateRequirements,
+              additionalSkills: item.additionalSkills,
+            });
+          });
+        }
+        setVacancies(loadedData);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('Произошла неизвестная ошибка');
+        }
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   const handleStartEdit = useCallback(
     (id: string) => {
