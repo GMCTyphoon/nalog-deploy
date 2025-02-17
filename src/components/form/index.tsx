@@ -88,8 +88,6 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({
     editConfig
   );
 
-  console.log(isEditLoading);
-
   useEffect(() => {
     if (editError) {
       onSubmitEdit?.(selectedVacancy);
@@ -104,7 +102,6 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({
     setTimeout(() => {
       setIsSubmitted(false);
     }, 3000);
-    console.log(values);
   };
 
   const handleEdit = async (values: FormValues) => {
