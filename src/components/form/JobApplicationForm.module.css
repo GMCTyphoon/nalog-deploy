@@ -7,6 +7,11 @@
   color: #4c73e3;
 }
 
+.formPageTitle span {
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
 .form {
   display: flex;
   flex-direction: column;

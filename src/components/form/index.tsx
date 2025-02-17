@@ -119,9 +119,10 @@ const JobApplicationForm: React.FC<JobApplicationFormProps> = ({
 
   return (
     <>
-      <h1 className={styles.formPageTitle}>{`Форма ${
-        !isEditing ? 'размещения' : 'редактирования'
-      } заявки`}</h1>
+     <h1 className={styles.formPageTitle}>
+        {`Форма ${!isEditing ? 'размещения' : 'редактирования'}`}&nbsp;
+        <span>заявки</span>
+      </h1>
       <Formik
         initialValues={selectedVacancy}
         validationSchema={validationSchema}
